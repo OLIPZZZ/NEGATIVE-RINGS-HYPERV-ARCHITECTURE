@@ -68,29 +68,29 @@ A solução foi a introdução dos **Anéis Negativos** — níveis de privilég
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                    Ring -3                       │
+│                    Ring -3                      │
 │         Intel Management Engine (ME)            │
 │         AMD Platform Security Processor (PSP)   │
 ├─────────────────────────────────────────────────┤
-│                    Ring -2                       │
+│                    Ring -2                      │
 │         System Management Mode (SMM)            │
 │         (Firmware / BIOS / UEFI)                │
 ├─────────────────────────────────────────────────┤
-│                    Ring -1                       │
+│                    Ring -1                      │
 │         Hypervisor (VMX root mode)              │
 │         Microsoft Hyper-V / VMware / KVM        │
 ├─────────────────────────────────────────────────┤
-│                    Ring 0                        │
+│                    Ring 0                       │
 │         Kernel do Sistema Operacional           │
 │         Drivers de Dispositivo                  │
 ├─────────────────────────────────────────────────┤
-│                    Ring 1                        │
+│                    Ring 1                       │
 │         (Praticamente não utilizado)            │
 ├─────────────────────────────────────────────────┤
-│                    Ring 2                        │
+│                    Ring 2                       │
 │         (Praticamente não utilizado)            │
 ├─────────────────────────────────────────────────┤
-│                    Ring 3                        │
+│                    Ring 3                       │
 │         Aplicativos de Usuário                  │
 │         Processos não privilegiados             │
 └─────────────────────────────────────────────────┘
