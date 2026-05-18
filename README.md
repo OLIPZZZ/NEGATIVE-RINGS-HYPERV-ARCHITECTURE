@@ -189,16 +189,16 @@ O Hyper-V organiza a execução de sistemas operacionais no conceito de **Parti�
 │                    Hyper-V Hypervisor                        │
 │                    (VMX Root / Ring -1)                      │
 ├─────────────────────────┬────────────────────────────────────┤
-│    Partição Raiz         │     Partições Filho (VMs)         │
-│    (Root Partition)      │     (Child Partitions)            │
+│    Partição Raiz        │     Partições Filho (VMs)          │
+│    (Root Partition)     │     (Child Partitions)             │
 │                         │                                    │
-│  ┌─────────────────┐   │   ┌──────────────────────────┐    │
-│  │  Windows Server │   │   │  Guest OS (Windows/Linux) │    │
-│  │  (Ring 0)       │   │   │  (Ring 0 virtualizado)    │    │
-│  ├─────────────────┤   │   ├──────────────────────────┤    │
-│  │  VMBus          │   │   │  VMBus / Enlightenments   │    │
-│  │  Drivers VSP    │   │   │  Drivers VSC              │    │
-│  └─────────────────┘   │   └──────────────────────────┘    │
+│  ┌─────────────────┐    │   ┌───────────────────────────┐    │
+│  │  Windows Server │    │   │  Guest OS (Windows/Linux) │    │
+│  │  (Ring 0)       │    │   │  (Ring 0 virtualizado)    │    │
+│  ├─────────────────┤    │   ├───────────────────────────┤    │
+│  │  VMBus          │    │   │  VMBus / Enlightenments   │    │
+│  │  Drivers VSP    │    │   │  Drivers VSC              │    │
+│  └─────────────────┘    │   └───────────────────────────┘    │
 └─────────────────────────┴────────────────────────────────────┘
 ```
 
@@ -261,18 +261,18 @@ Os **Enlightenments** são otimizações que permitem ao Guest OS "saber" que es
 A Microsoft implementou a **Virtualization-Based Security (VBS)** para utilizar o Hyper-V como um mecanismo de segurança, não apenas de virtualização:
 
 ```
-┌─────────────────────────────────────────────────────┐
-│              Hyper-V Hypervisor (Ring -1)           │
-├──────────────────┬──────────────────────────────────┤
-│  Normal World     │      Secure World               │
+┌────────────────────────────────────────────────────┐
+│              Hyper-V Hypervisor (Ring -1)          │
+├──────────────────┬─────────────────────────────────┤
+│  Normal World     │      Secure World              │
 │  (VTL 0)         │      (VTL 1 - IUM)              │
-│                  │                                  │
+│                  │                                 │
 │  Windows Kernel  │  Secure Kernel (skci.dll)       │
 │  (Ring 0)        │  LSA (lsaiso.exe)               │
 │                  │  Credential Guard               │
 │  Aplicativos     │  Code Integrity (HVCI)          │
-│  (Ring 3)        │                                  │
-└──────────────────┴──────────────────────────────────┘
+│  (Ring 3)        │                                 │
+└──────────────────┴─────────────────────────────────┘
 ```
 
 **Virtual Trust Levels (VTL):**
